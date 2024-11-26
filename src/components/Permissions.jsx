@@ -196,7 +196,7 @@ const Permissions = () => {
                 <button
                   type="button"
                   onClick={handleSavePermission}
-                  className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg"
+                  className="text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg"
                 >
                   {isEditMode ? "Save Changes" : "Add Permission"}
                 </button>

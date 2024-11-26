@@ -7,7 +7,10 @@ import Badge from "./Badge";
 const Roles = () => {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [currentRole, setCurrentRole] = useState({ roleName: "", permissions: [] });
+  const [currentRole, setCurrentRole] = useState({
+    roleName: "",
+    permissions: [],
+  });
   const [isEditMode, setIsEditMode] = useState(false);
   const [permissions, setPermissions] = useState([]); // List of available permissions
   const [errors, setErrors] = useState({}); // To handle validation errors
@@ -73,7 +76,7 @@ const Roles = () => {
   return (
     <div>
       <div className="header flex justify-between">
-      <Badge content="Roles" />
+        <Badge content="Roles" />
         <div className="buttons">
           <button
             type="button"
@@ -144,11 +147,26 @@ const Roles = () => {
                   placeholder="Enter role name"
                 />
                 {errors.roleName && (
-                  <span className="text-red-500 text-sm">{errors.roleName}</span>
+                  <span className="text-red-500 text-sm">
+                    {errors.roleName}
+                  </span>
                 )}
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700">Permissions</label>
+                <label className=" text-gray-700 flex gap-2 mb-3">
+                  <h1>Permissions</h1>
+                  <div className="relative group">
+                    <span className="bg-green-500 text-white px-[8px] rounded-[100%] text-sm">
+                      i
+                    </span>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 hidden group-hover:block">
+                      <div className="bg-gray-800 text-white text-sm py-1 px-2 rounded shadow-lg w-[200px]">
+                        Hold Ctrl and select multiple
+                      </div>
+                      <div className="absolute left-1/2 transform -translate-x-1/2 -top-2 w-3 h-3 bg-gray-800 rotate-45"></div>
+                    </div>
+                  </div>
+                </label>
                 <select
                   multiple
                   value={currentRole.permissions}
@@ -164,13 +182,18 @@ const Roles = () => {
                   className="w-full px-4 py-2 border rounded-lg"
                 >
                   {permissions.map((permission) => (
-                    <option key={permission.id} value={permission.permissionName}>
+                    <option
+                      key={permission.id}
+                      value={permission.permissionName}
+                    >
                       {permission.permissionName}
                     </option>
                   ))}
                 </select>
                 {errors.permissions && (
-                  <span className="text-red-500 text-sm">{errors.permissions}</span>
+                  <span className="text-red-500 text-sm">
+                    {errors.permissions}
+                  </span>
                 )}
               </div>
               <div className="flex justify-end">
